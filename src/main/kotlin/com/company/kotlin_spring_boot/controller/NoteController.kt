@@ -60,6 +60,11 @@ class NoteController(
         }
     }
 
+    @DeleteMapping(path = ["/{id}"])
+    fun deleteById(@PathVariable id: String) {
+        repository.deleteById(ObjectId(id))
+    }
+
 }
 
 private fun Note.toResponse(): NoteController.NoteResponse {
